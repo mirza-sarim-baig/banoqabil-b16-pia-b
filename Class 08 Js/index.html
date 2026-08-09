@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Javascript</h1>
+    <script>
+      //   console.log("Hello World");
+      //   console.warn("Hello World");
+      //   console.error("Hello World");
+      //   alert("Hello World");
+
+      //   var, let, const
+      // let name = "john";
+      //   keyword, variable name, assignment opr, value, statement terminator
+
+      //   let num1 = +prompt("Enter a number");
+      //   let num2 = +prompt("Enter another number");
+      //   let num3 = 20;
+      //   console.log(num1 + num2);
+      //   console.log(num2 - num3);
+      //   console.log("naalskjfio23ur92i390$#%me");
+
+      // let num1 = 10;
+      // let num2 = 20;
+      // let sum;
+      // console.log(sum);
+      // sum = num1 + num2;
+      // console.log(sum);
+      // sum = sum + 10;
+      // console.log(sum);
+
+      //  var, let, const
+
+      // var    redeclaration  yes    reassignment   yes
+      // let    redeclaration  no     reassignment   yes
+      // const  redeclaration  no     reassignment   no
+
+      // variable redeclaration
+      // var username = "sarim";
+      // var username;
+
+      // value reassign
+      // let num1 = 10;
+      // num1 = 15;
+
+      // const num = 5;
+      // num = 50;
+
+      // DATA TYPES
+
+      // string "string"
+      // number  45345
+      // boolean true/false
+      // undefined let name;
+      // null let count = null;
+
+      let value = "hello";
+      let value2 = 2344;
+      let value3 = true;
+      let value4;
+      let value5 = null;
+
+      // let 1name = "sarim"
+      // let na me = "sarim"
+      // let n%ame = "sarim"
+      // let true = "sarim"
+
+      // let userName camel case
+      // let user-name snake case
+      // let user_name pascal case
+
+      // let num1 = +prompt("enter value");
+      // let num2 = +prompt("enter value");
+
+      // console.log("sum", num1 + num2);
+      // console.log("sub", num1 - num2);
+      // console.log("div", num1 / num2);
+      // console.log("mul", num1 * num2);
+
+      // let key = prompt("enter key");
+      // let val = prompt("enter value");
+
+      let user = {
+        id: 54,
+        name: "sarim",
+        number: "0990099",
+        education: "BSCS",
+        designation: "teacher",
+        email: "sarim@gmail.com",
+        pass: "1234",
+      };
+
+      let userAdd = {
+        country: "Pakistan",
+        city: "karachi",
+        area: "Model",
+      };
+
+      let newuser = { ...user, ...userAdd };
+      console.log(newuser);
+
+      // user[key] = val;
+
+      // console.log(user);
+      // delete user.number;
+      // console.log(user);
+
+      // console.log(user[val]);
+
+      let userObj = {
+        address: {
+          geolocation: {
+            lat: "-37.3159",
+            long: "81.1496",
+          },
+          city: "kilcoole",
+          street: "new road",
+          number: 7682,
+          zipcode: "12926-3874",
+        },
+        id: 1,
+        email: "john@gmail.com",
+        username: "johnd",
+        password: "m38rmF$",
+        name: {
+          firstname: "john",
+          lastname: "doe",
+        },
+        phone: "1-570-236-7033",
+      };
+
+      // console.log(userObj.address.geolocation.lat);
+      console.log(userObj);
+    </script>
+  </body>
+</html>
