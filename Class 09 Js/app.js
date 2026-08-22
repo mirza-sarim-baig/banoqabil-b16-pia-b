@@ -45,21 +45,56 @@
 let bunType = prompt("Enter bun type ( plain, sweet, garlic )");
 let meatType = prompt("Enter meat type (beef, chicken)");
 let meatQuantity = +prompt("Enter meat quantity(in numbers)");
-// let isVeg = prompt("Want to include vegs(yes/no)");
-// let isDrink = prompt("Drink (black, white)");
+let vegType = prompt("tomato, onion, lattice");
+let drinkType = prompt("string, pepsi, fizzup");
+
+// let menu = {
+//   plain: 50,
+//   sweet: 60,
+//   garlic: 80,
+//   beef: 200,
+//   chicken: 150,
+//   veg: 50,
+//   black: 120,
+//   white: 100,
+// };
 
 let menu = {
-  plain: 50,
-  sweet: 60,
-  garlic: 80,
-  beef: 200,
-  chicken: 150,
-  veg: 50,
-  black: 120,
-  white: 100,
+  buns: {
+    plain: 50,
+    sweet: 60,
+    garlic: 80,
+  },
+  meat: {
+    beef: 200,
+    chicken: 150,
+  },
+  veg: {
+    tomato: 10,
+    onion: 8,
+    lattice: 5,
+  },
+  drinks: {
+    string: 150,
+    pepsi: 130,
+    fizzup: 120,
+  },
 };
 
-let totalBill = menu[bunType] + menu[meatType] * meatQuantity;
+let totalBill = 0;
+// totalBill += menu.buns.plain
+// totalBill += menu.buns.sweet
+// totalBill += menu.buns.garlic
+// console.log(menu.buns[bunType]);
+totalBill +=
+  menu.buns[bunType] +
+  menu.meat[meatType] * meatQuantity +
+  menu.veg[vegType] +
+  menu.drinks[drinkType];
+
+console.log("Total Bill is:", totalBill);
+
+// let totalBill = menu[bunType] + menu[meatType] * meatQuantity;
 
 // let plainBun = 50;
 // let sweetBun = 60;
@@ -89,5 +124,3 @@ let totalBill = menu[bunType] + menu[meatType] * meatQuantity;
 // } else {
 //   console.log("Please enter correct meat type");
 // }
-
-console.log("Total Bill is:", totalBill);
