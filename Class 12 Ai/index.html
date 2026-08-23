@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daymark | Daily Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Daymark home">
+          <span class="brand-mark">d</span>
+          <span>daymark</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-link active" href="#planner"
+            ><span class="nav-icon">▦</span>Planner</a
+          >
+          <a class="nav-link" href="#today"
+            ><span class="nav-icon">◷</span>Today
+            <span class="nav-count" id="todayCount">0</span></a
+          >
+          <a class="nav-link" href="#upcoming"
+            ><span class="nav-icon">□</span>Upcoming</a
+          >
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="focus-note">
+            <span class="spark">✦</span>
+            <p><strong>Small steps.</strong><br />Clear days.</p>
+          </div>
+          <button class="nav-link settings-button" type="button">
+            <span class="nav-icon">⚙</span>Settings
+          </button>
+          <div class="profile">
+            <span class="avatar">AM</span
+            ><span
+              ><strong>Alex Morgan</strong><small>Personal space</small></span
+            ><span class="more">•••</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="planner">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark">d</span> daymark
+          </div>
+          <div class="topbar-actions">
+            <button
+              class="icon-button theme-toggle"
+              id="themeToggle"
+              type="button"
+              aria-label="Switch to dark theme"
+              title="Switch to dark theme"
+            >
+              ☾
+            </button>
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="Search tasks"
+              title="Search tasks"
+            >
+              ⌕
+            </button>
+            <button
+              class="icon-button notification-button"
+              type="button"
+              aria-label="Notifications"
+              title="Notifications"
+            >
+              ♧<span></span>
+            </button>
+            <button class="mobile-menu" type="button" aria-label="Open menu">
+              ☰
+            </button>
+          </div>
+        </header>
+
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow">YOUR DAY, IN VIEW</p>
+            <h1 id="greeting">Good morning, Alex <span>✦</span></h1>
+            <p class="date-line" id="longDate"></p>
+          </div>
+          <button class="primary-button" id="openComposer" type="button">
+            <span>+</span> Add task
+          </button>
+        </section>
+
+        <section class="date-strip" aria-label="Choose a date">
+          <button
+            class="date-arrow"
+            id="previousDay"
+            type="button"
+            aria-label="Previous day"
+          >
+            ‹
+          </button>
+          <div class="dates" id="datePicker"></div>
+          <button
+            class="date-arrow"
+            id="nextDay"
+            type="button"
+            aria-label="Next day"
+          >
+            ›
+          </button>
+        </section>
+
+        <section class="content-grid">
+          <div class="schedule-column">
+            <div class="section-heading">
+              <div>
+                <h2 id="scheduleTitle">Today’s schedule</h2>
+                <p id="taskSummary">Your tasks will appear here.</p>
+              </div>
+              <button class="filter-button" id="filterButton" type="button">
+                All tasks <span>⌄</span>
+              </button>
+            </div>
+            <div class="timeline" id="taskList"></div>
+            <div class="empty-state" id="emptyState" hidden>
+              <div class="empty-icon">✦</div>
+              <h3>Your day has room to breathe</h3>
+              <p>Add a task and make the time yours.</p>
+              <button class="text-button" type="button" id="emptyAdd">
+                Add your first task <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          <aside class="insights-column">
+            <div class="insight-card progress-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">DAILY PROGRESS</p>
+                  <h3 id="progressLabel">A fresh start</h3>
+                </div>
+                <span class="progress-percent" id="progressPercent">0%</span>
+              </div>
+              <div class="progress-track"><span id="progressBar"></span></div>
+              <p class="muted" id="progressMessage">
+                Every completed task counts.
+              </p>
+            </div>
+            <div class="insight-card focus-card">
+              <div class="card-heading">
+                <p class="card-label">FOCUS NOTE</p>
+                <span class="focus-symbol">✦</span>
+              </div>
+              <p class="focus-quote">
+                “The secret of getting ahead is getting started.”
+              </p>
+              <p class="muted">— Mark Twain</p>
+            </div>
+            <div class="week-card">
+              <div class="card-heading">
+                <div>
+                  <p class="card-label">THIS WEEK</p>
+                  <h3>Keep your rhythm</h3>
+                </div>
+                <span class="week-score" id="weekScore">0/0</span>
+              </div>
+              <div class="week-bars" id="weekBars"></div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="task-dialog" id="taskDialog">
+      <form method="dialog" id="taskForm">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">MAKE IT REAL</p>
+            <h2 id="dialogTitle">Add a task</h2>
+          </div>
+          <button
+            class="close-button"
+            value="cancel"
+            type="submit"
+            formnovalidate
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <label
+          >Task name<input
+            id="taskTitle"
+            name="title"
+            type="text"
+            placeholder="What needs your attention?"
+            required
+            maxlength="80"
+        /></label>
+        <div class="form-row">
+          <label
+            >Date<input id="taskDate" name="date" type="date" required /></label
+          ><label
+            >Time<input id="taskTime" name="time" type="time" required
+          /></label>
+        </div>
+        <label
+          >Description <span class="optional">optional</span
+          ><textarea
+            id="taskDescription"
+            name="description"
+            rows="3"
+            placeholder="Add a little context..."
+          ></textarea>
+        </label>
+        <div class="dialog-actions">
+          <button
+            class="secondary-button"
+            value="cancel"
+            type="submit"
+            formnovalidate
+          >
+            Cancel</button
+          ><button
+            class="primary-button"
+            id="saveTask"
+            value="default"
+            type="submit"
+          >
+            Save task
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>

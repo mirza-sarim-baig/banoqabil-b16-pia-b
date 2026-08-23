@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopNow | Checkout</title>
+    <link rel="stylesheet" href="../css/cart.css" />
+  </head>
+  <body class="checkout-page">
+    <header class="checkout-header">
+      <a class="shop-brand" href="./index.html">Shop<span>Now</span></a>
+      <div class="secure-checkout"><span>✓</span> Secure checkout</div>
+    </header>
+
+    <main class="checkout-main">
+      <a class="back-link" href="../index.html">← Continue shopping</a>
+      <div class="checkout-heading">
+        <div>
+          <p class="eyebrow">YOUR SHOPPING BAG</p>
+          <h1>Review your order</h1>
+        </div>
+        <span id="itemCount" class="item-count">0 items</span>
+      </div>
+
+      <div class="checkout-grid">
+        <section class="cart-panel">
+          <div class="panel-heading">
+            <h2>Cart items</h2>
+            <span id="uniqueCount">0 products</span>
+          </div>
+          <div id="cartItems" class="cart-list"></div>
+          <div id="emptyCart" class="empty-cart" hidden>
+            <div class="empty-bag">🛍</div>
+            <h2>Your bag is empty</h2>
+            <p>Looks like you have not added anything yet.</p>
+            <a class="shop-button" href="./index.html">Browse products</a>
+          </div>
+        </section>
+
+        <aside class="summary-panel">
+          <h2>Order summary</h2>
+          <div class="summary-line">
+            <span>Subtotal</span><strong id="subtotal">$0.00</strong>
+          </div>
+          <div class="summary-line">
+            <span>Shipping</span><strong id="shipping">$0.00</strong>
+          </div>
+          <div class="shipping-note">Free shipping on orders over $50</div>
+          <div class="summary-total">
+            <span>Total</span><strong id="total">$0.00</strong>
+          </div>
+          <button class="checkout-button" id="checkoutButton" type="button">
+            Proceed to checkout <span>→</span>
+          </button>
+          <div class="payment-methods">
+            <span>We accept</span><b>VISA</b><b>MC</b><b>AMEX</b><b> Pay</b>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>

@@ -67,7 +67,7 @@ const mapData = (productData) => {
             $ ${productData[i].price}
             </div>
 
-            <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+            <button class="add-btn" onclick="addToCart(${productData[i].id})">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -75,9 +75,18 @@ const mapData = (productData) => {
     cardContainer.innerHTML += productCard;
   }
 };
-let itemsCount = 0;
-const addToCart = () => {
-  itemsCount++;
-  let cartItems = document.getElementById("cartItems");
-  cartItems.innerText = itemsCount;
+let cartArr = JSON.parse(localStorage.getItem("cartArr")) || [];
+
+let cartItems = document.getElementById("cartItems");
+cartItems.innerText = cartArr.length;
+console.log(cartArr);
+const addToCart = async (id) => {
+  let response = await fetch(`https://fakestoreapi.com/products/${id}`);
+  let productData = await response.json();
+  cartArr.push(productData);
+
+  localStorage.setItem("cartArr", JSON.stringify(cartArr));
+  cartItems.innerText = cartArr.length;
+
+  console.log(" cartArr.length", cartArr.length);
 };
